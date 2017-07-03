@@ -17,8 +17,8 @@ Connect your application directly with our payment engine to process a full suit
 * Obtain output in JSON format – it’s easy to parse in a large variety of Web and mobile applications.
 * Use any language or platform to make requests through standard HTTP protocols.
 
-# Authentication 
 <a name="Authentication" title="Authentication"></a>
+# Authentication 
 
 In order for you to use the Paysafe REST API, Paysafe must first set you up on their system
 and provide you with an API key. Your API key looks something like this:
@@ -43,6 +43,7 @@ For additional details, please refer to [http://en.wikipedia.org/wiki/Basic_acce
 
 # URLs 
 
+<a name="TestURL" title="Test URL"></a>
 ##  Test URL
 In order to test your integration with Paysafe, use the following Test URL:
 
@@ -52,6 +53,7 @@ For example:
 
 `https://api.test.paysafe.com/cardpayments/v1/accounts/{account_id}`
 
+<a name="ProductionURL" title="Production URL"></a>
 ## Production URL
 In order to process live requests with Paysafe, use the following Production URL:
 
@@ -61,9 +63,8 @@ For example:
 
 `https://api.paysafe.com/cardpayments/v1/accounts/{account_id}`
 
-
-# Pagination
 <a name="pagination" title="pagination"></a>
+# Pagination
 
 In the case where an API GET request returns multiple results, Paysafe returns the first 10 records by default and uses HATEOAS links to provide page navigation. In addition to the default behavior, it is also possible to control the number of results and starting point by passing in query parameters as follows:
 
@@ -74,6 +75,7 @@ In the case where an API GET request returns multiple results, Paysafe returns t
 | startDate     | This is the start date in UTC. Default = 30 days before the *endDate*.|
 | endDate       | This is the end date in UTC. Default = current date and time. |
 
+<a name="GlobalInvalidChars" title="Global Invalid Characters"></a>
 # Global Invalid Characters
 
 You must not include any of the characters in the following table as values in any of your request parameters. If you do, your request will result in an error.
@@ -90,6 +92,7 @@ You must not include any of the characters in the following table as values in a
 | ]               | 5D        | Closing bracket                    |
 | \               | 5C        | Backslash                          |
 
+<a name="API" title="API"></a>
 # API 
 
 The Card Payments API allows merchants to process credit card transactions using the REST protocol. The protocol uses JSON for all requests and responses.
@@ -580,7 +583,7 @@ The Paysafe Test environment can be used to test websites or applications withou
 
 # Complex JSON Objects
 
-<a name="accorddobject" title="Accord Object"></a>
+<a name="accorddobject" title="AccordD Object"></a>
 ## accordD
 |Element            |Type                       |Description                        |
 |---                |---                        |---       |
@@ -599,7 +602,7 @@ The Paysafe Test environment can be used to test websites or applications withou
     }
 ```
 
-<a name="acquirerdataobject" title="Acquirer Data Object"></a>
+<a name="acquirerdataobject" title="acquirerData Object"></a>
 ## acquirerData
 
 This is additional information about the card acquirer required when you are performing an Original Credit request. This object is required only when you are using Credorax (CRX) as your acquirer for Original Credits. Contact your account manager for details.
@@ -618,11 +621,12 @@ This is additional information about the card acquirer required when you are per
     }
 ```
 
-<a name="acquirerresponseobject" title="Acquirer Response Object"></a>
+<a name="acquirerresponseobject" title="acquirerResponse Object"></a>
 ## acquirerResponse
 
 These are raw results returned by the acquirer.
 
+<a name="genericacquirerresponseobject" title="Generic acquirerResponse Object"></a>
 **Generic**
 
 |Element            |Type       |Description                                                    |
@@ -632,6 +636,7 @@ These are raw results returned by the acquirer.
 |avsCode            |string     |This is the raw AVS code returned by the acquirer.     |
 |balanceResponse    |string     |This is the balance remaining on a gift card, if a gift card was used for the original transaction.|
 
+<a name="desjardinsacquirerresponseobject" title="Desjardins acquirerResponse Object"></a>
 **Desjardins (DJN)**
 
 |Element            |Type       |Description                        |
@@ -645,6 +650,7 @@ These are raw results returned by the acquirer.
 |term               |string     |This is the number of payments, in months, for equal payment transactions.|
 |terminalId         |string     |This is the merchant's terminal ID.|
 
+<a name="credoraxacquirerresponseobject" title="Credorax acquirerResponse Object"></a>
 **Credorax (CRX)**
 
 |Element            |Type       |Description        |
@@ -658,6 +664,7 @@ These are raw results returned by the acquirer.
 |responseReasonCode |string     |This is the raw response reason code returned by Credorax.|
 |cvv2Result         |string     |This is the raw cvv2 result code. |
 
+a name="netbanxacquirerresponseobject" title="Netbanx \ Paysafe acquirerResponse Object"></a>
 **NETBANX Acquirer Gateway (NAG)**
 
 |Element            |Type       |Description        |
@@ -682,7 +689,7 @@ These are raw results returned by the acquirer.
   }
 ```
 
-<a name="authenticationobject" title="Authentication Object"></a>
+<a name="authenticationobject" title="Authentication object"></a>
 ## authentication
 
 |Element            |Type                           |Description                        |
@@ -707,7 +714,7 @@ These are raw results returned by the acquirer.
   }
 ```
 
-<a name="authorizationobject"></a>
+<a name="authorizationobject" title="Auths oject"></a>
 ## auths
 
 |Element            |Type                                   |Description                        |
@@ -784,8 +791,7 @@ These are raw results returned by the acquirer.
 }    
 ```
 
-
-<a name="billingdetailsobject"></a>
+<a name="billingdetailsobject" title="billingDetails object"></a>
 ## billingDetails
 |Element            |Type                             |Description                        |
 |---                |---                              |---                                |
@@ -809,7 +815,7 @@ These are raw results returned by the acquirer.
   }
 ```
 
-<a name="cardobject"></a>
+<a name="cardobject" title="card object"></a>
 ## card
 
 When providing card information, merchants can provide either card details or a payment token for a customer already created in the system.
@@ -842,7 +848,7 @@ When providing card information, merchants can provide either card details or a 
     }
 ```
 
-<a name="cardexpiryobject"></a>
+<a name="cardexpiryobject" title="cardExpiry object"></a>
 ## cardExpiry
 
 |Element                 |Type                   |Description|
@@ -859,7 +865,7 @@ When providing card information, merchants can provide either card details or a 
     }
 ```
 
-<a name="errorobject"></a>
+<a name="errorobject" title="error object"></a>
 ## error
 |Element            |Type       |Description                        |
 |---                |---        |---                                |
@@ -886,7 +892,7 @@ When providing card information, merchants can provide either card details or a 
    }
 ```
 
-<a name="level2level3object"></a>
+<a name="level2level3object" title="level2level3 object"></a>
 ## level2level3
 
 Level 2 and Level 3 (L2/L3) credit card processing refers to certain B2B card transactions for which the merchant might be eligible for lower credit card interchange rates. The lower rates may be available for 
@@ -941,7 +947,7 @@ merchants who provide more detailed information when processing card-not-present
     }
 ```
 
-<a name="lineitemsobject"></a>
+<a name="lineitemsobject" title="lineItems object"></a>
 ##lineItems
 
 |Element                |Type                               | Description|
@@ -968,7 +974,7 @@ merchants who provide more detailed information when processing card-not-present
     }
 ```
 
-<a name="linksobject"></a>
+<a name="linksobject" title="links object"></a>
 ## links
 
 |Element    |Type          |Description|
@@ -987,7 +993,7 @@ merchants who provide more detailed information when processing card-not-present
         }
 ```
 
-<a name="merchantdescriptorobject"></a>
+<a name="merchantdescriptorobject" title="Merchant Descriptor object"></a>
 ## merchantDescriptor
 |Element            |Type                       |Description                        |
 |---                |---                        |---                                |
@@ -1003,7 +1009,7 @@ merchants who provide more detailed information when processing card-not-present
   }
 ```
 
-<a name="originalcreditsobject"></a>
+<a name="originalcreditsobject" title="Original Credits object"></a>
 ## originalcredits
 
 |Element            |Type                                   |Description                        |
@@ -1055,7 +1061,7 @@ merchants who provide more detailed information when processing card-not-present
 }    
 ```
 
-<a name="profileobject"></a>
+<a name="profileobject" title="Profile object"></a>
 ## profile
 |Element            |Type                       |Description    |
 |---                |---                        |---                                |
@@ -1073,7 +1079,7 @@ merchants who provide more detailed information when processing card-not-present
     }
 ```
 
-<a name="refundsobject"></a>
+<a name="refundsobject" title="refunds object"></a>
 ## refunds
 |Element            |Type                                   |Description                        |
 |---                |---                                    |---                                |
@@ -1095,7 +1101,7 @@ merchants who provide more detailed information when processing card-not-present
 }
 ```
 
-<a name="settlementsobject"></a>
+<a name="settlementsobject" title="settlements object"></a>
 ## settlements
 |Element            |Type                                   |Description                        |
 |---                |---                                    |---                                |
@@ -1118,7 +1124,7 @@ merchants who provide more detailed information when processing card-not-present
 }
 ```
 
-<a name="shippingdetailsobject"></a>
+<a name="shippingdetailsobject" title="shippingDetails object"></a>
 ## shippingDetails
 
 |Element            |Type                       |Description |
@@ -1147,7 +1153,7 @@ merchants who provide more detailed information when processing card-not-present
   }
 ```
 
-<a name="standalonecreditsobject"></a>
+<a name="standalonecreditsobject" title="standalonecredits object"></a>
 ## standalonecredits
 
 |Element            |Type                                   |Description                        |
@@ -1198,7 +1204,7 @@ merchants who provide more detailed information when processing card-not-present
 }    
 ```
 
-<a name="verificationsobject"></a>
+<a name="verificationsobject" title="verifications object"></a>
 ## verifications
 
 |Element            |Type                                   |Description                        |
@@ -1250,7 +1256,7 @@ merchants who provide more detailed information when processing card-not-present
 }    
 ```
 
-<a name="visaadditionalauthdataobject"></a>
+<a name="visaadditionalauthdataobject" title="visaAdditionalAuthData object"></a>
 ## visaAdditionalAuthData
 
 The recipient is deemed to be the person or party who has the contractual relationship with the merchant/financial institution. This may be different from the cardholder, e.g., in the case of a parent topping up a child's savings account. Therefore, the fields should not be collected on the same page as cardholder information, but instead be passed in the background from the merchant’s records.
@@ -1282,8 +1288,10 @@ The recipient is deemed to be the person or party who has the contractual relati
     }
 ```
 
+
 # Error Summary
 
+<a name="commonerrors" title="common errors">
 ## Common Errors
 |HTTP Status Code   |Error Code     |Description|
 |---                |---            |---|
@@ -1323,6 +1331,7 @@ The recipient is deemed to be the person or party who has the contractual relati
 |400                |5501           |The profile does not have an active credit card. |
 |400                |5502           |Either the payment token is invalid or the corresponding profile or bank account is not active.|
 
+<a name="authorizationerrors" title="authorization errors">
 ## Authorization Errors
 |HTTP Status Code   |Error Code     |Description|
 |---                |---            |---|
@@ -1375,6 +1384,7 @@ The recipient is deemed to be the person or party who has the contractual relati
 |402                |3053           |The bank has requested that you retrieve the card from the cardholder &ndash; please call the acquirer.|
 |402                |3054           |The transaction was declined due to suspected fraud.|
 
+<a name="voidauthorizationerrors" title="void authorization errors">
 ## Void Authorization Errors
 |HTTP Status Code   |Error Code     |Description|
 |---                |---            |---|
@@ -1386,6 +1396,7 @@ The recipient is deemed to be the person or party who has the contractual relati
 |500                |3505           |The Authorization Reversal could not be completed.|
 |402                |3506           |The reversal amount exceeds the remaining amount of the Authorization.|
 
+<a name="settlementerrors" title="settlement errors">
 ## Settlement Errors
 |HTTP Status Code   |Error Code     |Description|
 |---                |---            |---|
@@ -1397,6 +1408,7 @@ The recipient is deemed to be the person or party who has the contractual relati
 |402                |3205           |The Authorization you are attempting to settle has expired.|
 |402                |3206           |The external processing gateway has rejected the transaction.|
 
+<a name="refunderrors" title="refund errors">
 ## Refund Errors
 |HTTP Status Code   |Error Code     |Description|
 |---                |---            |---|
@@ -1415,7 +1427,7 @@ The recipient is deemed to be the person or party who has the contractual relati
 |402                |3417           |There is already another request being processed on the transaction referenced for this request. |
 |402                |3418           |The external processing gateway for which your merchant account is configured does not support partial Credits.|
 
-
+<a name="consolewindow" title="console window">
 # Using the example API calls (Console Window)
 To configure and test the API examples, first click on one of the API calls in the API Reference section and then click **Switch to Console** in the right hand pane. 
 Using the Console window you can update the headers, the request body, and parts of the API endpoint. 
@@ -1430,6 +1442,7 @@ When you are ready to test your example, you can choose between the Production a
 
 To call the API resource, click **Call Resource**. The response is displayed in the Console window.
 
+<a name="monitor" title="verify the service is accessible endpoint">
 ## Verify That the Service Is Accessible [GET /monitor]
 
 This call returns a status of READY if the API is available.
@@ -1443,7 +1456,7 @@ This call returns a status of READY if the API is available.
             }
 
 # Authorizations [/auths]
-<a name="auths"></a>
+
 
 ## Authorization [POST /v1/accounts/{account_id}/auths]
 
@@ -2323,7 +2336,7 @@ You can use either of two payment token types:<ul><li>The permanent, reusable pa
               "status":"COMPLETED"
             }        
 
-        
+<a name="getauth" title="Get  endpoint"></a>        
 ## Get Authorization [GET /v1/accounts/{account_id}/auths/{auth_id}]
 
 This is how you look up an Authorization request using the ID returned in the response to the original request.
